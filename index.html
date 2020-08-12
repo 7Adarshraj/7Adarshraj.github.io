@@ -7,8 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <style>
         .card:before {
@@ -146,21 +145,23 @@
         <a class="navbar-brand" href="#">
             <img src="./images/avalon.svg" alt="" style="width: 5%; margin-left: 10%;">
         </a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-                  <span class="navbar-toggler-icon"></span>
-                </button>
+        <button class="navbar-toggler ml-2 pl-2" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon" style="background-color: black; position: relative;left:25px;">   
+            </span>    
+        </button>
+
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-            <div class="navbar-nav navItem" id="top_nav" style="margin-left: 20%;">
-                <a class="nav-item nav-link dark active navItem" href="#">Home <span class="sr-only">(current)</span></a>
-                <a class="nav-item nav-link dark  active navItem" href="#">Features</a>
-                <a class="nav-item nav-link dark  active navItem" href="#">Pricing</a>
-                <a class="nav-item nav-link  dark active  navItem" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+            <div class="navbar-nav navItem" id="top_nav" style="margin-left: 40%;">
+                <a class="nav-item nav-link dark active navItem mr-5" href="#"><span style="color: black;"><b>Home</b></span></a>
+                <a class="nav-item nav-link dark  active navItem mr-5" href="#"><span style="color: black;"><b>About</b></span></a>
+                <a class="nav-item nav-link dark  active navItem" href="#"><span style="color: black;"><b>Downloads</b></span></a>
+                <!-- <a class="nav-item nav-link  dark active  navItem" href="#" tabindex="-1" aria-disabled="true">Disabled</a> -->
             </div>
         </div>
     </nav>
 
     <div class="container-fluid no-gutters mx-0 my-0" style="background: #d9a7c7;
-            background: linear-gradient(to bottom, #fffcdc, #d9a7c7);box-shadow: 0px 10px 15px rgba(0,0,0,0.2); ">
+            background: linear-gradient(to bottom, #fffcdc, #d9a7c7); height: 550px;">
 
         <!-- Landing page -->
         <div class="container d-flex pop">
@@ -179,13 +180,15 @@
 
                 </div>
             </div>
-
-            <div class="container d-none d-lg-block">
-                <img src="./images/man with laptop.png " alt=" " class="img-fluid hide" style="height: 560px; overflow-y: visible;">
+            <div class="container d-none d-lg-block mt-0 pt-0">
+                <img src="./images/man with laptop.png " alt=" " class="img-fluid hide" style="height: 560px; overflow-y: visible; position: relative; top : 40px">
             </div>
+
         </div>
 
+
     </div>
+
 
 
 
@@ -420,7 +423,7 @@
             <div class="mt-4 pt-5">
                 <small>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Officiis consequuntur temporibus dolorem minus vel, iusto quidem dignissimos cumque. Id, illo.
                                  </small><br><br>
-                <button class="btn card " style="border-radius: 5%; background-color: tomato; width: 150px;box-shadow: 0px 10px 15px rgba(0,0,0,0.2);"><span class="text-center">Explore Now</span></button>
+                <button class="btn card " style="border-radius: 5%; background-color: tomato; width: 150px;"><span class="text-center">Explore Now</span></button>
 
             </div>
         </div>
@@ -631,7 +634,7 @@
     <div class="container mt-5 pt-2">
         <div class="row">
             <div class="col-5 d-flex justify-content-center mx-auto bt">
-                <button type="button" class="btn  btn-lg btn-block btn-outline-dark bt"><a href="mailto:7contactadarsh@gmail.com" class="bt"><i class="fa fa-envelope"> 7contactadarsh@gmail.com</i></a></button>
+                <button type="button" class="btn  btn-lg btn-block btn-outline-dark bt" style="overflow-x: hidden;"><a href="mailto:7contactadarsh@gmail.com" class="bt"><i class="fa fa-envelope"> 7contactadarsh@gmail.com</i></a></button>
             </div>
 
         </div>
@@ -640,7 +643,7 @@
     <div class="container mt-3">
         <div class="row">
             <div class="col-5 d-flex justify-content-center mx-auto">
-                <button type="button" class="btn btn-lg btn-block btn-outline-dark"><a href="" class="bt"><i class="fa fa-linkedin"></i> Linkedin.com/Adarsh</a></button>
+                <button type="button" class="btn btn-lg btn-block btn-outline-dark" style="overflow-x: hidden;"><a href="" class="bt"><i class="fa fa-linkedin"></i> Linkedin.com/Adarsh</a></button>
             </div>
 
         </div>
@@ -649,7 +652,7 @@
     <div class="container mt-3">
         <div class="row">
             <div class="col-5 d-flex justify-content-center mx-auto">
-                <button type="button" class="btn  btn-lg btn-block btn-outline-dark"><a href="http://www.google.com" class="bt"><i class="fa fa-github"></i> github.com/Adarsh</a></button>
+                <button type="button" class="btn  btn-lg btn-block btn-outline-dark" style="overflow-x: hidden;"><a href="http://www.google.com" class="bt"><i class="fa fa-github"></i> github.com/Adarsh</a></button>
             </div>
 
         </div>
