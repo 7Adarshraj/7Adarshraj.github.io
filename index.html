@@ -1,0 +1,712 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+    <style>
+        .card:before {
+            pointer-events: none;
+            position: absolute;
+            z-index: -1;
+            content: '';
+            top: 100%;
+            left: 5%;
+            height: 10px;
+            width: 90%;
+            opacity: 0;
+            background: -webkit-radial-gradient(center, ellipse, rgba(0, 0, 0, 0.35) 0%, rgba(0, 0, 0, 0) 80%);
+            background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.35) 0%, rgba(0, 0, 0, 0) 80%);
+            /* W3C */
+            -webkit-transition-duration: 0.3s;
+            transition-duration: 0.3s;
+            -webkit-transition-property: transform, opacity;
+            transition-property: transform, opacity;
+            transition: all 0.3s ease-in-out;
+        }
+        
+        .card:hover,
+        .card:focus,
+        .card:active {
+            -webkit-transform: translateY(-5px);
+            transform: translateY(-8px);
+            transition: all 0.3s ease-in-out;
+            /* move the element up by 5px */
+        }
+        
+        .card:hover:before,
+        .card:focus:before,
+        .card:active:before {
+            opacity: 1;
+            -webkit-transform: translateY(5px);
+            transform: translateY(5px);
+            transition: all 0.3s ease-in-out;
+            /* move the element down by 5px (it will stay in place because it's attached to the element that also moves up 5px) */
+        }
+        
+        .pbtn {
+            background-color: #e6d0dd;
+            display: inline-block;
+            vertical-align: middle;
+            -webkit-transform: perspective(1px) translateZ(0);
+            transform: perspective(1px) translateZ(0);
+            box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+            overflow: hidden;
+            -webkit-transition-duration: 0.3s;
+            transition-duration: 0.3s;
+            -webkit-transition-property: color, background-color;
+            transition-property: color, background-color;
+            border: 1px solid #e090c3;
+            color: rgb(20, 20, 20);
+        }
+        
+        .pbtn:hover,
+        .pbtn:focus,
+        .pbtn:active {
+            background-color: #e090c3;
+            color: rgb(255, 255, 255);
+        }
+        
+        .underline {
+            border-bottom: 2px solid coral;
+            /* display: inline-block; */
+            line-height: .85;
+            width: 0.7em;
+            justify-content: center;
+        }
+        
+        .pop {
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        .image {
+            display: block;
+            width: 100%;
+            height: auto;
+        }
+        
+        .overlay {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 100%;
+            width: 100%;
+            opacity: 0;
+            transition: .5s ease;
+            background-color: #fffcdc;
+        }
+        
+        .contain:hover .overlay {
+            opacity: 1;
+        }
+        
+        .text {
+            color: rgb(0, 0, 0);
+            font-size: 20px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            /* text-align: center; */
+            justify-content: space-around;
+            width: 100%;
+        }
+        
+        .text>a {
+            text-decoration: none;
+        }
+        
+        .bt {
+            color: black;
+            text-decoration: none;
+            font-size: 0.8em;
+            font-family: Poppins;
+            font-weight: 100;
+        }
+        
+        .btn-block:hover .bt {
+            color: rgb(255, 255, 255);
+            text-decoration: none;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #fffcdc; padding-top: 2%;">
+        <a class="navbar-brand" href="#">
+            <img src="./images/avalon.svg" alt="" style="width: 5%; margin-left: 10%;">
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon"></span>
+                </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav navItem" id="top_nav" style="margin-left: 20%;">
+                <a class="nav-item nav-link dark active navItem" href="#">Home <span class="sr-only">(current)</span></a>
+                <a class="nav-item nav-link dark  active navItem" href="#">Features</a>
+                <a class="nav-item nav-link dark  active navItem" href="#">Pricing</a>
+                <a class="nav-item nav-link  dark active  navItem" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container-fluid no-gutters mx-0 my-0" style="background: #d9a7c7;
+            background: linear-gradient(to bottom, #fffcdc, #d9a7c7);box-shadow: 0px 10px 15px rgba(0,0,0,0.2); ">
+
+        <!-- Landing page -->
+        <div class="container d-flex pop">
+            <div class="container mt-5 pt-5 mr-0 occupy">
+                <!-- <h1><b>Give Yourself a</b></h1>
+                <h1><b>Unique Style!</b></h1><br> -->
+                <div class="mt-3 pt-5" style="height: 70px;">
+                    <h1><b><span id="typed"></span></b></h1>
+                </div>
+
+
+                <div class="mt-4 pt-5">
+                    <small>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Officiis consequuntur temporibus dolorem minus vel, iusto quidem dignissimos cumque. Id, illo.
+                            </small><br><br>
+                    <button class="btn card " style="border-radius: 5%; background-color: tomato; width: 150px;"><span class="text-center">Explore Now</span></button>
+
+                </div>
+            </div>
+
+            <div class="container d-none d-lg-block">
+                <img src="./images/man with laptop.png " alt=" " class="img-fluid hide" style="height: 560px; overflow-y: visible;">
+            </div>
+        </div>
+
+    </div>
+
+
+
+
+
+
+    <!-- About me -->
+    <div class="container-fluid d-flex mt-5 pt-5 px-0 mx-0 no-gutters" style="background: #d9a7c7;
+            background: white;" id='p13'>
+
+        <div class=" container d-none d-lg-block mt-2 ml-0 pl-0">
+            <img src="./images/man.jpg" alt=" " class="img-fluid " style=" width: 550px; border-radius: 0% 5% 5% 0%;box-shadow: 0px 10px 15px rgba(0,0,0,0.2);">
+        </div>
+
+        <div class="container mt-1 pt-5 mr-0 occupy">
+            <h1><b>About me</b></h1>
+            <!-- <h1><b>Unique Style!</b></h1> -->
+
+
+            <div class="mt-4 pt-5">
+                <p>
+                    I'm a Information Technology student at JSS Academy of Techincal Education.
+                    <br>
+                    <br> I'm a fast learner which allows me to be flexible with my technologies as necessary. I'm always interested in learning opportunities so if you need another team member, feel free to contact me!
+                </p><br><br>
+                <button class="btn btn-lg btn-outline-dark" style=><span class="text-center">Explore More</span></button>
+
+            </div>
+        </div>
+
+
+    </div>
+
+
+    <!-- prog images -->
+
+
+
+
+
+    <div class="row mt-5">
+        <div class="col-12">
+            <h1 class="pop mt-5 pt-5 mb-4 text-center"><b>Tech Stack</b></h1>
+        </div>
+        <div class="col-12 d-flex justify-content-center">
+            <div class="card-deck ">
+
+                <div class="card mt-5 " style="border: none;">
+                    <!-- <img src="./images/quotes.png " class="card-img-top " alt="... "> -->
+
+                    <div class="card-body justify-content-center ">
+                        <!-- <h5 class="card-title ">Card title</h5> -->
+                        <!-- <p class="card-text "> This content is a little bit longer.</p> -->
+                        <div class="text-center" style="">
+                            <img src="./images/cpp.png" class="card-img-top " alt="... " style="height:150px;width: 150px; box-shadow: 0px 3px 15px rgba(0,0,0,0.2); border-radius: 50% 50%;">
+                        </div>
+                        <br>
+                        <!-- <h5 class="text-center ">User 2</h5> -->
+                    </div>
+                </div>
+
+                <div class="card mt-5 " style="border: none;">
+                    <!-- <img src="./images/quotes.png " class="card-img-top " alt="... "> -->
+
+                    <div class="card-body justify-content-center ">
+                        <!-- <h5 class="card-title ">Card title</h5> -->
+                        <!-- <p class="card-text "> This content is a little bit longer.</p> -->
+                        <div class="text-center" style="">
+                            <img src="./images/js.png" class="card-img-top " alt="... " style="height:150px;width: 150px; box-shadow: 0px 3px 15px rgba(0,0,0,0.2); border-radius: 50% 50%;">
+                        </div>
+                        <br>
+                        <!-- <h5 class="text-center ">User 2</h5> -->
+                    </div>
+                </div>
+
+                <div class="card mt-5 " style="border: none;">
+                    <!-- <img src="./images/quotes.png " class="card-img-top " alt="... "> -->
+
+                    <div class="card-body justify-content-center ">
+                        <!-- <h5 class="card-title ">Card title</h5> -->
+                        <!-- <p class="card-text "> This content is a little bit longer.</p> -->
+                        <div class="text-center" style="">
+                            <img src="./images/python.png" class="card-img-top " alt="... " style="height:150px;width: 150px; box-shadow: 0px 3px 15px rgba(0,0,0,0.2); border-radius: 50% 50%;">
+                        </div>
+                        <br>
+                        <!-- <h5 class="text-center ">User 2</h5> -->
+                    </div>
+                </div>
+
+                <div class="card mt-5 " style="border: none;">
+                    <!-- <img src="./images/quotes.png " class="card-img-top " alt="... "> -->
+
+                    <div class="card-body justify-content-center ">
+                        <!-- <h5 class="card-title ">Card title</h5> -->
+                        <!-- <p class="card-text "> This content is a little bit longer.</p> -->
+                        <div class="text-center" style="">
+                            <img src="./images/html.png" class="card-img-top " alt="... " style="height:150px;width: 150px; box-shadow: 0px 3px 15px rgba(0,0,0,0.2); border-radius: 50% 50%;">
+                        </div>
+                        <br>
+                        <!-- <h5 class="text-center ">User 2</h5> -->
+                    </div>
+                </div>
+
+                <div class="card mt-5 " style="border: none;">
+                    <!-- <img src="./images/quotes.png " class="card-img-top " alt="... "> -->
+
+                    <div class="card-body justify-content-center ">
+                        <!-- <h5 class="card-title ">Card title</h5> -->
+                        <!-- <p class="card-text "> This content is a little bit longer.</p> -->
+                        <div class="text-center" style="">
+                            <img src="./images/css.png" class="card-img-top " alt="... " style="height:150px;width: 150px; box-shadow: 0px 3px 15px rgba(0,0,0,0.2); border-radius: 50% 50%;">
+                        </div>
+                        <br>
+                        <!-- <h5 class="text-center ">User 2</h5> -->
+                    </div>
+                </div>
+
+
+
+
+
+
+            </div>
+        </div>
+
+    </div>
+
+
+
+    <!-- row 2 of prog images-->
+    <div class="row">
+        <div class="col-12 d-flex justify-content-center">
+            <div class="card-deck ">
+
+
+                <div class="card mt-5 " style="border: none;">
+                    <!-- <img src="./images/quotes.png " class="card-img-top " alt="... "> -->
+
+                    <div class="card-body justify-content-center ">
+                        <!-- <h5 class="card-title ">Card title</h5> -->
+                        <!-- <p class="card-text "> This content is a little bit longer.</p> -->
+                        <div class="text-center" style="">
+                            <img src="./images/bootstrap.png" class="card-img-top " alt="... " style="height:150px;width: 150px; box-shadow: 0px 3px 15px rgba(0,0,0,0.2); border-radius: 50% 50%;">
+                        </div>
+                        <br>
+                        <!-- <h5 class="text-center ">User 2</h5> -->
+                    </div>
+                </div>
+
+
+
+                <div class="card mt-5 " style="border: none;">
+                    <!-- <img src="./images/quotes.png " class="card-img-top " alt="... "> -->
+
+                    <div class="card-body justify-content-center ">
+                        <!-- <h5 class="card-title ">Card title</h5> -->
+                        <!-- <p class="card-text "> This content is a little bit longer.</p> -->
+                        <div class="text-center" style="">
+                            <img src="./images/nodejs.png" class="card-img-top " alt="... " style="height:150px;width: 150px; box-shadow: 0px 3px 15px rgba(0,0,0,0.2); border-radius: 50% 50%;">
+                        </div>
+                        <br>
+                        <!-- <h5 class="text-center ">User 2</h5> -->
+                    </div>
+                </div>
+
+
+                <div class="card mt-5 " style="border: none;">
+                    <!-- <img src="./images/quotes.png " class="card-img-top " alt="... "> -->
+
+                    <div class="card-body justify-content-center ">
+                        <!-- <h5 class="card-title ">Card title</h5> -->
+                        <!-- <p class="card-text "> This content is a little bit longer.</p> -->
+                        <div class="text-center" style="">
+                            <img src="./images/sql.png" class="card-img-top " alt="... " style="height:150px;width: 150px; box-shadow: 0px 3px 15px rgba(0,0,0,0.2); border-radius: 50% 50%;">
+                        </div>
+                        <br>
+                        <!-- <h5 class="text-center ">User 2</h5> -->
+                    </div>
+                </div>
+
+
+                <div class="card mt-5 " style="border: none;">
+                    <!-- <img src="./images/quotes.png " class="card-img-top " alt="... "> -->
+
+                    <div class="card-body justify-content-center ">
+                        <!-- <h5 class="card-title ">Card title</h5> -->
+                        <!-- <p class="card-text "> This content is a little bit longer.</p> -->
+                        <div class="text-center" style="">
+                            <img src="./images/firebase.png" class="card-img-top " alt="... " style="height:150px;width: 150px; box-shadow: 0px 3px 15px rgba(0,0,0,0.2); border-radius: 50% 50%;">
+                        </div>
+                        <br>
+                        <!-- <h5 class="text-center ">User 2</h5> -->
+                    </div>
+                </div>
+                <div class="card mt-5 " style="border: none;">
+                    <!-- <img src="./images/quotes.png " class="card-img-top " alt="... "> -->
+
+                    <div class="card-body justify-content-center ">
+                        <!-- <h5 class="card-title ">Card title</h5> -->
+                        <!-- <p class="card-text "> This content is a little bit longer.</p> -->
+                        <div class="text-center" style="">
+                            <img src="./images/TF2.png" class="card-img-top " alt="... " style="height:150px;width: 150px; box-shadow: 0px 3px 15px rgba(0,0,0,0.2); border-radius: 50% 50%;">
+                        </div>
+                        <br>
+                        <!-- <h5 class="text-center ">User 2</h5> -->
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+
+    </div>
+
+
+
+
+
+
+
+    <!-- About me part-2-->
+    <div class="container-fluid d-flex mt-5 pt-5 px-0 mx-0 no-gutters" style="background: #d9a7c7;
+     background: white;" id='p13'>
+
+
+
+        <div class="container px-5 mt-5 pt-5 ml-4">
+            <h1><b>Give Yourself a</b></h1>
+            <h1><b>Unique Style!</b></h1>
+
+
+            <div class="mt-4 pt-5">
+                <small>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Officiis consequuntur temporibus dolorem minus vel, iusto quidem dignissimos cumque. Id, illo.
+                                 </small><br><br>
+                <button class="btn card " style="border-radius: 5%; background-color: tomato; width: 150px;box-shadow: 0px 10px 15px rgba(0,0,0,0.2);"><span class="text-center">Explore Now</span></button>
+
+            </div>
+        </div>
+
+
+
+        <div class=" container d-none d-lg-block mt-5 pt-5 mr-0 occupy pr-0">
+            <img src="./images/computerSmall.jpg" alt=" " class="img-fluid " style="height: 470px; border-radius: 5% 0% 0% 5%;box-shadow: 0px 3px 15px rgba(0,0,0,0.2);">
+        </div>
+
+    </div>
+
+
+
+    <!-- Projects -->
+
+    <h1 class="mt-5 pt-5 mb-5 text-center pop"><b>Projects</b></h1>
+
+    <!-- row1 -->
+    <div class="row">
+        <div class="col-8 mx-auto">
+            <div class="card-deck ">
+                <div class="card mt-5" style="border: none; box-shadow: 0px 3px 15px rgba(0,0,0,0.2); ">
+                    <!-- <img src="./images/quotes.png " class="card-img-top " alt="... "> -->
+                    <div class="text-center ">
+                        <span class='underline'><br><b>This content is a little bit longer</b>.</span>
+                    </div>
+                    <div class="card-body justify-content-center contain">
+                        <!-- <h5 class="card-title ">Card title</h5> -->
+
+
+                        <img src="./images/AES.png" class="card-img-top image" alt="... " style=" height: 15em ;border-radius: 5%; ">
+
+                        <div class="overlay">
+                            <div class="text">
+
+                                <h2 class="text-center mt-4">Lorem ipsum dolor sit amet consectetur adipisicing.</h2>
+                                <p class="text-center">Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse, dolores.</p>
+                                <small><p class="text-center">Lorem ipsum dolor sit amet consectetur adipisicing.</p></small>
+                            </div>
+                        </div>
+
+
+                    </div>
+
+                </div>
+
+
+                <div class="card mt-5" style="border: none; box-shadow: 0px 3px 15px rgba(0,0,0,0.2); ">
+                    <!-- <img src="./images/quotes.png " class="card-img-top " alt="... "> -->
+                    <div class="text-center ">
+                        <span class='underline'><br><b>This content is a little bit longer</b>.</span>
+                    </div>
+                    <div class="card-body justify-content-center contain">
+                        <!-- <h5 class="card-title ">Card title</h5> -->
+
+
+                        <img src="./images/AES.png" class="card-img-top image" alt="... " style=" height: 15em ;border-radius: 5%; ">
+
+                        <div class="overlay">
+                            <div class="text">
+
+                                <h2 class="text-center mt-4">Lorem ipsum dolor sit amet consectetur adipisicing.</h2>
+                                <p class="text-center">Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse, dolores.</p>
+                                <small><p class="text-center">Lorem ipsum dolor sit amet consectetur adipisicing.</p></small>
+                            </div>
+                        </div>
+
+
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- row2 -->
+
+    <div class="row">
+        <div class="col-8 mx-auto">
+            <div class="card-deck ">
+                <div class="card mt-5" style="border: none; box-shadow: 0px 3px 15px rgba(0,0,0,0.2); ">
+                    <!-- <img src="./images/quotes.png " class="card-img-top " alt="... "> -->
+                    <div class="text-center ">
+                        <span class='underline'><br><b>This content is a little bit longer</b>.</span>
+                    </div>
+                    <div class="card-body justify-content-center contain">
+                        <!-- <h5 class="card-title ">Card title</h5> -->
+
+
+                        <img src="./images/AES.png" class="card-img-top image" alt="... " style=" height: 15em ;border-radius: 5%; ">
+
+                        <div class="overlay">
+                            <div class="text">
+
+                                <h2 class="text-center mt-4">Lorem ipsum dolor sit amet consectetur adipisicing.</h2>
+                                <p class="text-center">Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse, dolores.</p>
+                                <small><p class="text-center">Lorem ipsum dolor sit amet consectetur adipisicing.</p></small>
+                            </div>
+                        </div>
+
+
+                    </div>
+
+                </div>
+
+
+                <div class="card mt-5" style="border: none; box-shadow: 0px 3px 15px rgba(0,0,0,0.2); ">
+                    <!-- <img src="./images/quotes.png " class="card-img-top " alt="... "> -->
+                    <div class="text-center ">
+                        <span class='underline'><br><b>This content is a little bit longer</b>.</span>
+                    </div>
+                    <div class="card-body justify-content-center contain">
+                        <!-- <h5 class="card-title ">Card title</h5> -->
+
+
+                        <img src="./images/AES.png" class="card-img-top image" alt="... " style=" height: 15em ;border-radius: 5%; ">
+
+                        <div class="overlay">
+                            <div class="text">
+
+                                <h2 class="text-center mt-4">Lorem ipsum dolor sit amet consectetur adipisicing.</h2>
+                                <p class="text-center">Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse, dolores.</p>
+                                <small><p class="text-center">Lorem ipsum dolor sit amet consectetur adipisicing.</p></small>
+                            </div>
+                        </div>
+
+
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- row3 -->
+
+    <div class="row">
+        <div class="col-8 mx-auto">
+            <div class="card-deck ">
+                <div class="card mt-5" style="border: none; box-shadow: 0px 3px 15px rgba(0,0,0,0.2); ">
+                    <!-- <img src="./images/quotes.png " class="card-img-top " alt="... "> -->
+                    <div class="text-center ">
+                        <span class='underline'><br><b>This content is a little bit longer</b>.</span>
+                    </div>
+                    <div class="card-body justify-content-center contain">
+                        <!-- <h5 class="card-title ">Card title</h5> -->
+
+
+                        <img src="./images/AES.png" class="card-img-top image" alt="... " style=" height: 15em ;border-radius: 5%; ">
+
+                        <div class="overlay">
+                            <div class="text">
+
+                                <h2 class="text-center mt-4">Lorem ipsum dolor sit amet consectetur adipisicing.</h2>
+                                <p class="text-center">Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse, dolores.</p>
+                                <small><p class="text-center">Lorem ipsum dolor sit amet consectetur adipisicing.</p></small>
+                            </div>
+                        </div>
+
+
+                    </div>
+
+                </div>
+
+
+                <div class="card mt-5" style="border: none; box-shadow: 0px 3px 15px rgba(0,0,0,0.2); ">
+                    <!-- <img src="./images/quotes.png " class="card-img-top " alt="... "> -->
+                    <div class="text-center ">
+                        <span class='underline'><br><b>This content is a little bit longer</b>.</span>
+                    </div>
+                    <div class="card-body justify-content-center contain">
+                        <!-- <h5 class="card-title ">Card title</h5> -->
+
+
+                        <img src="./images/AES.png" class="card-img-top image" alt="... " style=" height: 15em ;border-radius: 5%; ">
+
+                        <div class="overlay">
+                            <div class="text">
+
+                                <h2 class="text-center mt-4">Lorem ipsum dolor sit amet consectetur adipisicing.</h2>
+                                <p class="text-center">Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse, dolores.</p>
+                                <small><p class="text-center">Lorem ipsum dolor sit amet consectetur adipisicing.</p></small>
+                            </div>
+                        </div>
+
+
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+    <!-- !project -->
+
+
+    <!-- contact details -->
+
+    <h1 class="text-center pop mt-5 pt-5">Contact</h1>
+    <h5 class="text-center mt-5 pt-2">Let's get in touch!</h5>
+
+
+    <div class="container mt-5 pt-2">
+        <div class="row">
+            <div class="col-5 d-flex justify-content-center mx-auto bt">
+                <button type="button" class="btn  btn-lg btn-block btn-outline-dark bt"><a href="mailto:7contactadarsh@gmail.com" class="bt"><i class="fa fa-envelope"> 7contactadarsh@gmail.com</i></a></button>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="container mt-3">
+        <div class="row">
+            <div class="col-5 d-flex justify-content-center mx-auto">
+                <button type="button" class="btn btn-lg btn-block btn-outline-dark"><a href="" class="bt"><i class="fa fa-linkedin"></i> Linkedin.com/Adarsh</a></button>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="container mt-3">
+        <div class="row">
+            <div class="col-5 d-flex justify-content-center mx-auto">
+                <button type="button" class="btn  btn-lg btn-block btn-outline-dark"><a href="http://www.google.com" class="bt"><i class="fa fa-github"></i> github.com/Adarsh</a></button>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="container-fluid mx-auto pt-4" style="width: 100%;">
+        <div class="row mx-auto">
+            <div class="col-12 d-flex mx-auto justify-content-center">
+                <p>&copy; Adarsh Raj, 2020</p>
+            </div>
+        </div>
+
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+    <script>
+        window.onload = function() {
+            console.log("loaded")
+            var typed = new Typed('#typed', {
+                strings: ["Welcome to my website", "Here you would know about me", "Hopefully you'd like it :)"],
+                backSpeed: 15,
+                smartBackspace: true,
+                backDelay: 1200,
+                startDelay: 1000,
+                typeSpeed: 25,
+                loop: true,
+            });
+        };
+    </script>
+
+
+    <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+
+    <!-- <script type="text/javascript" src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/particlesjs/2.2.3/particles.js"></script>
+
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+
+    <!-- JS, Popper.js, and jQuery -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11"></script>
+
+</body>
+
+</html>
