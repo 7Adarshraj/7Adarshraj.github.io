@@ -11,6 +11,26 @@
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
 
     <style>
+        @media only screen and (max-width: 400px) {
+            /* .landing-text {
+                padding-top: 20px;
+            } */
+            .landing-btn {
+                position: absolute;
+                top: 460px;
+            }
+            .landing-text {
+                position: absolute;
+                top: 410px;
+            }
+            .landing-typed {
+                /* margin-top: 10px;
+                padding-top: 0px; */
+                position: absolute;
+                top: 170px;
+            }
+        }
+        
         .card:before {
             pointer-events: none;
             position: absolute;
@@ -150,11 +170,11 @@
 
     <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #fffcdc; padding-top: 2%;" data-aos="fade-up" data-aos-offset="0" data-aos-delay="0" data-aos-duration="500" data-aos-easing="ease-in-out" data-aos-mirror="true" data-aos-once="true"
         data-aos-anchor='' data-aos-anchor-placement="top-center">
-        <a class="navbar-brand" href="#">
+        <a class="navbar-brand nav-img" href="#">
             <img src="./images/avalon.svg" alt="" style="width: 5%; margin-left: 10%;">
         </a>
         <button class="navbar-toggler ml-2 pl-2" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon" style="background-color: black; position: relative;left:25px;">   
+            <span class="navbar-toggler-icon burger" style="background-color: black; position: relative;left:25px;">   
             </span>    
         </button>
 
@@ -174,20 +194,20 @@
 
         <!-- Landing page -->
         <div class="container d-flex pop">
-            <div class="container mt-5 pt-5 mr-0 occupy">
+            <div class="container mt-5 pt-5 mr-0 occupy ">
                 <!-- <h1><b>Give Yourself a</b></h1>
                 <h1><b>Unique Style!</b></h1><br> -->
-                <div class="mt-5 pt-5" style="height: 70px;">
+                <div class="mt-5 pt-5 landing-typed" style="height: 70px;">
                     <h1 class="mt-2"><b><span id="typed"></span></b></h1>
                 </div>
 
                 <br>
-                <div class="mt-4 pt-0">
-                    <p class="mb-0">Hope you are having a good time:)<br>
+                <div class="mt-4 pt-5">
+                    <p class="mb-0 landing-text">Hope you are having a good time:)<br>
                         <!-- <p class="pt-0 mt-0"> Keep scrolling...</p><br> -->
                         <!-- <button class="btn card " style="border-radius: 5%; background-color: tomato; width: 150px;"><span class="text-center">Explore Now</span></button> -->
                         <div class="mt-4 pt-0">
-                            <button class="btn btn-lg btn-outline-dark " style=><a href="#"><span class="text-center">Explore More</span></a></button>
+                            <button class="btn btn-lg btn-outline-dark landing-btn" style=><a href="#"><span class="text-center">Explore More</span></a></button>
 
                         </div>
                 </div>
@@ -226,8 +246,10 @@
                     <br>
                     <br> I'm a fast learner which allows me to be flexible with my technologies as necessary. I'm always interested in learning opportunities so if you need another team member, feel free to contact me !
                 </p><br><br>
-                <button class="btn btn-lg btn-outline-dark" style=><span class="text-center">Get Resume</span></button>
+                <div class="pl-5">
+                    <button class="btn btn-lg btn-outline-dark ml-4" style=><span class="text-center">Explore Projects</span></button>
 
+                </div><br>
             </div>
         </div>
 
@@ -428,13 +450,13 @@
 
 
         <div class="container px-5 mt-5 pt-5 ml-4 heading">
-            <h1><b>Achievements & Projects</b></h1>
+            <h1 class="px-0 mx-0"><b>Achievements & Projects</b></h1>
             <!-- <h1><b>Unique Style!</b></h1> -->
 
 
-            <div class="mt-4 pt-5">
-                <ul>
-                    <h1>
+            <div class="mt-4 pt-5 px-0 mx-0">
+                <ul class="px-0 mx-0">
+                    <h1 class="px-0 mx-0">
                         <li style="list-style-type: disc;">
                             <h4>Built a fully functional e-commerce website</h4>
                         </li>
@@ -460,8 +482,8 @@
 
                 <!-- <button class="btn btn-lg btn-outline-dark ml-4" style=><span class="text-center">Explore Projects</span></button> -->
 
-                <div class="pl-3">
-                    <button class="btn btn-lg btn-outline-dark ml-4" style=><span class="text-center">Explore Projects</span></button>
+                <div class="pl-0 mx-0">
+                    <button class="btn btn-lg btn-outline-dark" style=><span class="text-center">Explore Projects</span></button>
 
                 </div><br>
 
@@ -751,11 +773,11 @@
             console.log("loaded")
             var typed = new Typed('#typed', {
                 strings: ["Hello There!", "Welcome to my website", "Keep scrolling for more:)"],
-                backSpeed: 15,
+                backSpeed: 30,
                 smartBackspace: true,
                 backDelay: 1200,
-                startDelay: 1000,
-                typeSpeed: 25,
+                startDelay: 1200,
+                typeSpeed: 37,
                 loop: true,
             });
         };
